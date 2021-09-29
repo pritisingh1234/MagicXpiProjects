@@ -1,0 +1,33 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "CoreReq",
+	"NACObject"
+  ],
+  "properties": {
+    "CoreReq": {
+      "$id": "#/properties/CoreReq",
+      "type": "string",
+      "title": "The Corereq Schema",
+      "default": "",
+      "examples": [
+        "dsadasdsadsads"
+      ],
+      "pattern": "^(.*)$"
+    },
+	"NACObject": {
+      "$id": "#/properties/v",
+      "type": "string",
+      "title": "The NACObject Schema",
+      "default": "",
+      "examples": [
+        "dsadasdsadsads"
+      ],
+      "pattern": "^(.*)$"
+    }
+  }
+}

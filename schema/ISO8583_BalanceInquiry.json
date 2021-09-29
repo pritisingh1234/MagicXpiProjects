@@ -1,0 +1,257 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+          "MTI":"1100",
+	"Header":"ISO8583",
+	"Field2":"",
+	"Field3":"",
+	"Field4":"",
+	"Field7":"",
+	"Field11":"",
+	"Field12":"",
+	"Field17":"",
+	"Field19":"",
+	"Field22":"",
+	"Field24":"",
+	"Field26":"",
+	"Field32":"",
+	"Field37":"",
+	"Field41":"",
+	"Field42":"",
+	"Field49":"",
+	"Field102":"",
+	"Field103":"",
+        }
+    ],
+    "required": [
+        "MTI",
+        "Header",
+        "Field2",
+        "Field3",
+        "Field4",
+        "Field7",
+        "Field11",
+        "Field12",
+        "Field17",
+        "Field19",
+        "Field22",
+        "Field24",
+        "Field26",
+        "Field32",
+        "Field37",
+        "Field41",
+        "Field42",
+        "Field49",
+        "Field102",
+        "Field103"
+    ],
+    "properties": {
+        "MTI": {
+            "$id": "#/properties/MTI",
+            "type": "string",
+            "title": "The MTI schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "1100"
+            ]
+        },
+        "Header": {
+            "$id": "#/properties/Header",
+            "type": "string",
+            "title": "The Header schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                "ISO8583"
+            ]
+        },
+        "Field2": {
+            "$id": "#/properties/Field2",
+            "type": "string",
+            "title": "The Field2 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field3": {
+            "$id": "#/properties/Field3",
+            "type": "string",
+            "title": "The Field3 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field4": {
+            "$id": "#/properties/Field4",
+            "type": "string",
+            "title": "The Field4 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field7": {
+            "$id": "#/properties/Field7",
+            "type": "string",
+            "title": "The Field7 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field11": {
+            "$id": "#/properties/Field11",
+            "type": "string",
+            "title": "The Field11 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field12": {
+            "$id": "#/properties/Field12",
+            "type": "string",
+            "title": "The Field12 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field17": {
+            "$id": "#/properties/Field17",
+            "type": "string",
+            "title": "The Field17 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field19": {
+            "$id": "#/properties/Field19",
+            "type": "string",
+            "title": "The Field19 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field22": {
+            "$id": "#/properties/Field22",
+            "type": "string",
+            "title": "The Field22 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field24": {
+            "$id": "#/properties/Field24",
+            "type": "string",
+            "title": "The Field24 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field26": {
+            "$id": "#/properties/Field26",
+            "type": "string",
+            "title": "The Field26 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field32": {
+            "$id": "#/properties/Field32",
+            "type": "string",
+            "title": "The Field32 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field37": {
+            "$id": "#/properties/Field37",
+            "type": "string",
+            "title": "The Field37 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field41": {
+            "$id": "#/properties/Field41",
+            "type": "string",
+            "title": "The Field41 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field42": {
+            "$id": "#/properties/Field42",
+            "type": "string",
+            "title": "The Field42 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field49": {
+            "$id": "#/properties/Field49",
+            "type": "string",
+            "title": "The Field49 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field102": {
+            "$id": "#/properties/Field102",
+            "type": "string",
+            "title": "The Field102 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        },
+        "Field103": {
+            "$id": "#/properties/Field103",
+            "type": "string",
+            "title": "The Field103 schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": "",
+            "examples": [
+                ""
+            ]
+        }
+    },
+    "additionalProperties": true
+}

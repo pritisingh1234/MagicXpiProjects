@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<AddOnAdaptorSettings>
+
+  <Name>ISO8583</Name>
+
+  <Id>108715994</Id>
+
+  <Description>ISO8583</Description>
+
+  <Version>1.0</Version>
+
+  <MinXpiVersion>04.5000</MinXpiVersion>
+
+  <Icon>1.jpg</Icon>
+
+  <Group>Connectors</Group>
+
+  <DefaultInterface>2</DefaultInterface>
+
+  <EncryptionKey>7FNU5DKS</EncryptionKey>
+
+  <LicenseFeature/>
+
+  <StepDefinitions>
+    <UIType>D</UIType>
+    <UIImplementationClass>ISO8583.UI                                                                                                                                                                                                                                                          </UIImplementationClass>
+    <Resource>true</Resource>
+    <ConfigRequiresResServ>false</ConfigRequiresResServ>
+    <RuntimeTechnologyType>1</RuntimeTechnologyType>
+    <RuntimeImplementationClass>ISO8583.StepRuntime</RuntimeImplementationClass>
+    <RuntimeRequiresResServ>false</RuntimeRequiresResServ>
+    <DAMInterfaceSupported>false</DAMInterfaceSupported>
+    <DataMapperInterfaceSupported>false</DataMapperInterfaceSupported>
+    <MethodConfigTechnology>1</MethodConfigTechnology>
+    <JavaClassName/>
+    <JavaMethods>
+      <Method>
+        <MethodID>1</MethodID>
+        <JavaID>5</JavaID>
+        <MethodType>CO</MethodType>
+      </Method>
+      <Method>
+        <MethodID>2</MethodID>
+        <JavaID>7</JavaID>
+        <MethodType>IM</MethodType>
+      </Method>
+      <Method>
+        <MethodID>3</MethodID>
+        <JavaID>11</JavaID>
+        <MethodType>IM</MethodType>
+      </Method>
+      <Method>
+        <MethodID>4</MethodID>
+        <JavaID>18</JavaID>
+        <MethodType>SM</MethodType>
+      </Method>
+      <Method>
+        <MethodID>5</MethodID>
+        <JavaID>8</JavaID>
+        <MethodType>IM</MethodType>
+      </Method>
+      <Method>
+        <MethodID>6</MethodID>
+        <JavaID>20</JavaID>
+        <MethodType>SM</MethodType>
+      </Method>
+      <Method>
+        <MethodID>7</MethodID>
+        <JavaID>17</JavaID>
+        <MethodType>SM</MethodType>
+      </Method>
+      <Method>
+        <MethodID>8</MethodID>
+        <JavaID>19</JavaID>
+        <MethodType>SM</MethodType>
+      </Method>
+      <Method>
+        <MethodID>9</MethodID>
+        <JavaID>14</JavaID>
+        <MethodType>SM</MethodType>
+      </Method>
+      <Method>
+        <MethodID>10</MethodID>
+        <JavaID>16</JavaID>
+        <MethodType>SM</MethodType>
+      </Method>
+      <Method>
+        <MethodID>11</MethodID>
+        <JavaID>9</JavaID>
+        <MethodType>IM</MethodType>
+      </Method>
+      <Method>
+        <MethodID>12</MethodID>
+        <JavaID>10</JavaID>
+        <MethodType>IM</MethodType>
+      </Method>
+      <Method>
+        <MethodID>13</MethodID>
+        <JavaID>15</JavaID>
+        <MethodType>SM</MethodType>
+      </Method>
+      <Method>
+        <MethodID>14</MethodID>
+        <JavaID>13</JavaID>
+        <MethodType>SM</MethodType>
+      </Method>
+    </JavaMethods>
+  </StepDefinitions>
+
+  <TriggerDefinitions>
+    <UIType>S</UIType>
+    <Service>true</Service>
+    <UIImplementationClass/>
+    <ConfigRequiresResServ>false</ConfigRequiresResServ>
+    <RuntimeTechnologyType>1</RuntimeTechnologyType>
+    <RuntimeImplementationClass>ISO8583.Runtime</RuntimeImplementationClass>
+    <RuntimeRequiresResServ>true</RuntimeRequiresResServ>
+    <TriggerInvocationType>E</TriggerInvocationType>
+    <FlowInvocationBehavior>3</FlowInvocationBehavior>
+    <ServiceUIImplementationClass/>
+  </TriggerDefinitions>
+
+  <ResourceDefinition>
+    <RS_Type_Name>ISO8583</RS_Type_Name>
+    <RS_Type_Description/>
+    <RS_Validation_Helper>True</RS_Validation_Helper>
+    <Property>
+      <ID>1</ID>
+      <Name>IP</Name>
+      <Type>A</Type>
+      <Picture>30</Picture>
+      <ReadOnly>0</ReadOnly>
+      <Mandatory>0</Mandatory>
+      <TooltipDescription>Local IP</TooltipDescription>
+      <ValueSelectionType>EA</ValueSelectionType>
+      <LogicalNameSupport>1</LogicalNameSupport>
+      <ItemList/>
+      <DisplayList/>
+      <LinkedParameterID>0</LinkedParameterID>
+      <encrypted>0</encrypted>
+      <DefaultValue/>
+      <Visibility>0</Visibility>
+      <DependentParameterID>0</DependentParameterID>
+      <DependentParameterValues/>
+      <DisplaySequenceID>1</DisplaySequenceID>
+    </Property>
+    <Property>
+      <ID>2</ID>
+      <Name>Port</Name>
+      <Type>A</Type>
+      <Picture>10</Picture>
+      <ReadOnly>0</ReadOnly>
+      <Mandatory>0</Mandatory>
+      <TooltipDescription>Local Port</TooltipDescription>
+      <ValueSelectionType>EA</ValueSelectionType>
+      <LogicalNameSupport>1</LogicalNameSupport>
+      <ItemList/>
+      <DisplayList/>
+      <LinkedParameterID>0</LinkedParameterID>
+      <encrypted>0</encrypted>
+      <DefaultValue/>
+      <Visibility>0</Visibility>
+      <DependentParameterID>0</DependentParameterID>
+      <DependentParameterValues/>
+      <DisplaySequenceID>2</DisplaySequenceID>
+    </Property>
+  </ResourceDefinition>
+
+  <ServiceDefinition>
+    <RS_Type_Name>ISO8583</RS_Type_Name>
+    <RS_Type_Description/>
+    <RS_Validation_Helper>True</RS_Validation_Helper>
+    <Property>
+      <ID>1</ID>
+      <Name>Switch IP</Name>
+      <Type>A</Type>
+      <Picture>100</Picture>
+      <ReadOnly>0</ReadOnly>
+      <Mandatory>0</Mandatory>
+      <TooltipDescription/>
+      <ValueSelectionType>EA</ValueSelectionType>
+      <LogicalNameSupport>1</LogicalNameSupport>
+      <ItemList/>
+      <DisplayList/>
+      <LinkedParameterID>0</LinkedParameterID>
+      <encrypted>0</encrypted>
+      <DefaultValue/>
+      <Visibility>0</Visibility>
+      <DependentParameterID>0</DependentParameterID>
+      <DependentParameterValues/>
+      <DisplaySequenceID>1</DisplaySequenceID>
+    </Property>
+    <Property>
+      <ID>2</ID>
+      <Name>Port</Name>
+      <Type>A</Type>
+      <Picture>30</Picture>
+      <ReadOnly>0</ReadOnly>
+      <Mandatory>0</Mandatory>
+      <TooltipDescription/>
+      <ValueSelectionType>EA</ValueSelectionType>
+      <LogicalNameSupport>1</LogicalNameSupport>
+      <ItemList/>
+      <DisplayList/>
+      <LinkedParameterID>0</LinkedParameterID>
+      <encrypted>0</encrypted>
+      <DefaultValue/>
+      <Visibility>0</Visibility>
+      <DependentParameterID>0</DependentParameterID>
+      <DependentParameterValues/>
+      <DisplaySequenceID>2</DisplaySequenceID>
+    </Property>
+    <Property>
+      <ID>3</ID>
+      <Name>Local Port</Name>
+      <Type>A</Type>
+      <Picture>30</Picture>
+      <ReadOnly>0</ReadOnly>
+      <Mandatory>0</Mandatory>
+      <TooltipDescription>Local port for step listen</TooltipDescription>
+      <ValueSelectionType>EA</ValueSelectionType>
+      <LogicalNameSupport>1</LogicalNameSupport>
+      <ItemList/>
+      <DisplayList/>
+      <LinkedParameterID>0</LinkedParameterID>
+      <encrypted>0</encrypted>
+      <DefaultValue/>
+      <Visibility>0</Visibility>
+      <DependentParameterID>0</DependentParameterID>
+      <DependentParameterValues/>
+      <DisplaySequenceID>3</DisplaySequenceID>
+    </Property>
+  </ServiceDefinition>
+
+  <Struct_ErrorsList>
+    <ErrorsListComp>
+      <ErrorCode>8888</ErrorCode>
+      <ErrorDescription>.Net Exception</ErrorDescription>
+      <JavaExceptionMessage></JavaExceptionMessage>
+    </ErrorsListComp>
+    <ErrorsListComp>
+      <ErrorCode>9999</ErrorCode>
+      <ErrorDescription>Java Exception</ErrorDescription>
+      <JavaExceptionMessage></JavaExceptionMessage>
+    </ErrorsListComp>
+  </Struct_ErrorsList>
+
+</AddOnAdaptorSettings>

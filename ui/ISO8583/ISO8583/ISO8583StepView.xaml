@@ -1,0 +1,341 @@
+﻿<UserControl x:Class="ISO8583.ISO8583StepView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ISO8583"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:xpiCommon="http://schemas.magicsoftware.com/2011/xpiCommon"
+             mc:Ignorable="d" 
+             Height="430" Width="450"
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ibolt.common;component/Themes/DialogThemes/ButtonDialogTheme.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ibolt.common;component/Themes/DialogThemes/ComboBoxDialogTheme.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ibolt.common;component/Themes/DialogThemes/TextDialogTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <UserControl.CommandBindings>
+        <CommandBinding x:Name="EditExpression"
+                        Command="{x:Static local:Commands.EditExpressionCommand}"
+                        Executed="EditExpression_OnExecuted" />
+        <CommandBinding x:Name="Prompt"
+                        Command="{x:Static local:Commands.PromptCommand}"
+                        Executed="PromptCommand_OnExecuted" />
+    </UserControl.CommandBindings>
+
+    <xpiCommon:FormLayout ShowSeparator="True">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <xpiCommon:InputFieldsGroup  Grid.Row="0" AlignLabels="False" 
+                                         Focusable="False"
+                                         Header ="Connection" 
+                                         LabelWidth="130">
+                <xpiCommon:InputField Header ="Resource Name">
+                    <TextBlock Text="{Binding StepModel.ResourceName}" />
+                </xpiCommon:InputField>
+            </xpiCommon:InputFieldsGroup>
+
+            <xpiCommon:InputFieldsGroup Grid.Row="2" AlignLabels="False"  LabelWidth="130"
+                                        Focusable="False" 
+                                        Header ="Operation">
+
+                <xpiCommon:InputField Header ="Object">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="BtnObjectEntity"
+                                VerticalAlignment="Center"
+                                Command="{Binding Path=ObjectEntityButtonCommand}"
+                                Style="{StaticResource PickListButtonStyle}"
+                                TabIndex="10" />
+                        <TextBlock Margin="3,0,8,0"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource PlaneTextBlockStyle}"
+                                   Text="{Binding StepModel.EntityObjectString}" />
+                    </StackPanel>
+                </xpiCommon:InputField>
+
+                <xpiCommon:InputField Header ="Operation">
+                    <ComboBox Name="CmbOperation"  Width="93" 
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Left"
+                              Style="{DynamicResource ComboBoxDialogStyle}"
+                              ItemsSource="{Binding StepModel.OperationList}"
+                              ToolTip="{Binding StepModel.OperationString,
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                              SelectedItem="{Binding StepModel.OperationString,
+                                                     Mode=TwoWay,
+                                                     UpdateSourceTrigger=PropertyChanged}">
+                    </ComboBox>
+                </xpiCommon:InputField>
+            </xpiCommon:InputFieldsGroup>
+
+            <xpiCommon:InputFieldsGroup Grid.Row="4"
+                                        AlignLabels="False"  LabelWidth="130"
+                                        Focusable="False" Header ="Output">
+
+                <xpiCommon:InputField Header ="Store Result In">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <ComboBox Name="ResultStorageSelector"
+                                  Grid.Column="0"
+                                  Width="93"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Center"
+                                  DisplayMemberPath="Item1"
+                                  Focusable="False"
+                                  ItemsSource="{Binding ResultStorageOptions}"
+                                  SelectedItem="{Binding ResultStorageOption}"
+                                  SelectedValuePath="Item2"
+                                  Style="{StaticResource ComboBoxDialogStyle}" />
+
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <StackPanel.Style>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedItem.Item1, ElementName=ResultStorageSelector}" Value="Variable">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Style>
+                            <Button Margin="3,0,0,0" Name="BtnStoreResIn"
+                                    VerticalAlignment="Center"
+                                    Command="{x:Static local:Commands.PromptCommand}"
+                                    CommandParameter="storage"
+                                    Style="{StaticResource PickListButtonStyle}"
+                                    TabIndex="10" />
+                            <TextBlock Margin="3,0,8,0"
+                                       VerticalAlignment="Center"
+                                       Style="{StaticResource PlaneTextBlockStyle}"
+                                       Text="{Binding ResultStorage.Value}" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <StackPanel.Style>
+                                <Style TargetType="StackPanel">
+                                    <Setter Property="Visibility" Value="Hidden" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding SelectedItem.Item1, ElementName=ResultStorageSelector}" Value="File">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Style>
+
+                            <TextBox Width="150"
+                                     Margin="3,0,0,0"
+                                     VerticalAlignment="Center"
+                                     Style="{StaticResource TextBoxDialogStyle}"
+                                     TabIndex="11"
+                                     Text="{Binding ResultStorage.Value}" />
+                            <Button VerticalAlignment="Center" Name="BtnStoreResInEXp"
+                                    Command="{x:Static local:Commands.EditExpressionCommand}"
+                                    CommandParameter="storage"
+                                    Style="{StaticResource FxButtonStyle}"
+                                    TabIndex="12" />
+                            <Button Margin="3,0,0,0" Name="BtnStoreResInFd"
+                                    VerticalAlignment="Center"
+                                    Command="{x:Static local:Commands.PromptCommand}"
+                                    CommandParameter="storage"
+                                    Style="{StaticResource FDButtonStyle}"
+                                    TabIndex="13" />
+                        </StackPanel>
+                    </Grid>
+                </xpiCommon:InputField>
+
+                <xpiCommon:InputField Header ="Success">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="44" />
+                            <ColumnDefinition Width="49"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.Resources>
+                            <DataTemplate DataType="{x:Type local:ZoomableFieldViewModel}">
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Margin="3,0,0,0" Name="btnOPSuccess"
+                                                VerticalAlignment="Center"
+                                                Command="{x:Static local:Commands.PromptCommand}"
+                                                CommandParameter="success"
+                                                Style="{StaticResource PickListButtonStyle}"
+                                                TabIndex="14" />
+                                        <TextBlock Margin="3,0,8,0"
+                                                   VerticalAlignment="Center"
+                                                   Focusable="False"
+                                                   Style="{StaticResource PlaneTextBlockStyle}"
+                                                   Text="{Binding Value}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Grid.Resources>
+
+                        <ComboBox Name="OperationSuccess"
+                                  Grid.Column="0"
+                                  Width="93"
+                                  TabIndex="14"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Center"
+                                  DisplayMemberPath="Item1"
+                                  Focusable="False"
+                                  ItemsSource="{Binding OperationSuccessOptions}"
+                                  SelectedItem="{Binding OperationSuccessOption}"
+                                  SelectedValuePath="Item2"
+                                  Style="{StaticResource ComboBoxDialogStyle}" Grid.ColumnSpan="2" />
+
+                        <ContentControl Grid.Column="2"
+                                        Content="{Binding OperationSuccess}"
+                                        Focusable="False" />
+                    </Grid>
+                </xpiCommon:InputField>
+            </xpiCommon:InputFieldsGroup>
+
+            <xpiCommon:InputFieldsGroup Grid.Row="6" 
+                                        AlignLabels="False"  LabelWidth="130"
+                                        Focusable="False" Header ="Split Files Options">
+                <xpiCommon:InputField Header ="Directory">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="IsEnabled" Value="False" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedItem.Item1, ElementName=ResultStorageSelector}" Value="SplitFile">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBox Width="150"
+                                 Name="TxtDirectory"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Left"
+                                 Style="{StaticResource TextBoxDialogStyle}"
+                                 Text="{Binding Directory.Value,
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}" />
+                        <Button Name="BtnDirectory"
+                                VerticalAlignment="Center"
+                                Margin="3,0,0,0"
+                                Command="{x:Static local:Commands.EditExpressionCommand}"
+                                CommandParameter="directory"
+                                Style="{StaticResource FxButtonStyle}"/>
+                    </StackPanel>
+                </xpiCommon:InputField>
+
+                <xpiCommon:InputField Header ="Prefix">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="IsEnabled" Value="False" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedItem.Item1, ElementName=ResultStorageSelector}" Value="SplitFile">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBox Width="150"
+                                 Name="TxtPrefix"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Left"
+                                 Style="{StaticResource TextBoxDialogStyle}"
+                                 Text="{Binding Prefix.Value,
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}" />
+                        <Button Name="BtnPrefix"
+                                VerticalAlignment="Center"
+                                Margin="3,0,0,0"
+                                Command="{x:Static local:Commands.EditExpressionCommand}"
+                                CommandParameter="prefix"
+                                Style="{StaticResource FxButtonStyle}"/>
+                    </StackPanel>
+                </xpiCommon:InputField>
+
+                <xpiCommon:InputField Header ="Records Per File">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="IsEnabled" Value="False" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedItem.Item1, ElementName=ResultStorageSelector}" Value="SplitFile">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <TextBox Width="150"
+                                 Name="TxtRecordsPerFile"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Left"
+                                 Style="{StaticResource TextBoxDialogStyle}"
+                                 Text="{Binding RecordsPerFile.Value,
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}" />
+                        <Button Name="BtnRecordsPerFile"
+                                VerticalAlignment="Center"
+                                Margin="3,0,0,0"
+                                Command="{x:Static local:Commands.EditExpressionCommand}"
+                                CommandParameter="recordsPerFile"
+                                Style="{StaticResource FxButtonStyle}"/>
+                    </StackPanel>
+                </xpiCommon:InputField>
+
+                <xpiCommon:InputField Header ="Number of Splits">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Style>
+                            <Style TargetType="StackPanel">
+                                <Setter Property="IsEnabled" Value="False" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding SelectedItem.Item1, ElementName=ResultStorageSelector}" Value="SplitFile">
+                                        <Setter Property="IsEnabled" Value="True" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <Button Name="BtnNumberOfSplits"
+                                VerticalAlignment="Center"
+                                Command="{x:Static local:Commands.PromptCommand}"
+                                CommandParameter="numberOfSplits"
+                                Style="{StaticResource PickListButtonStyle}"
+                                TabIndex="10" />
+                        <TextBlock Margin="3,0,8,0"
+                                   VerticalAlignment="Center"
+                                   Style="{StaticResource PlaneTextBlockStyle}"
+                                   Text="{Binding NumberOfSplit.Value}" />
+                    </StackPanel>
+                </xpiCommon:InputField>
+            </xpiCommon:InputFieldsGroup>
+
+        </Grid>
+
+        <xpiCommon:FormLayout.DialogActionButtons>
+            <Button xpiCommon:UIContextService.HideInDebugMode="True"
+                    Name="BtnOk"
+                    Content="OK"
+                    TabIndex="16" />
+            <Button Click="BtnCancel_OnClick"
+                    Content="Cancel"
+                    TabIndex="17"
+                    Tag="Cancel" />
+        </xpiCommon:FormLayout.DialogActionButtons>
+    </xpiCommon:FormLayout>
+</UserControl>

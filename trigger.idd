@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<DAM_Parameters>
+
+  <Parameter>
+    <ID>1</ID>
+    <Name>SwitchData</Name>
+    <XSDElementName>SwitchData</XSDElementName>
+    <Type>B</Type>
+    <Picture></Picture>
+    <InOut>N</InOut>
+    <Mandatory>0</Mandatory>
+    <TooltipDescription>Switch Incomming Data</TooltipDescription>
+    <ValueSelectionType>Picklist</ValueSelectionType>
+    <DisplaySequenceID>1</DisplaySequenceID>
+    <Visibility>0</Visibility>
+    <DefaultValue></DefaultValue>
+    <LogicalNameSupport>0</LogicalNameSupport>
+  </Parameter>
+
+  <Parameter>
+    <ID>2</ID>
+    <Name>MgResponse</Name>
+    <XSDElementName>MgResponse</XSDElementName>
+    <Type>B</Type>
+    <Picture></Picture>
+    <InOut>R</InOut>
+    <Mandatory>0</Mandatory>
+    <TooltipDescription>OutGoing Data</TooltipDescription>
+    <ValueSelectionType>EA</ValueSelectionType>
+    <DisplaySequenceID>2</DisplaySequenceID>
+    <Visibility>0</Visibility>
+    <DefaultValue></DefaultValue>
+    <LogicalNameSupport>0</LogicalNameSupport>
+  </Parameter>
+
+</DAM_Parameters>

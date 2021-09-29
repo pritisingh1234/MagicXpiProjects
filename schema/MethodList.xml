@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MethodList>
+	<Method>
+	  <Name>ISO8583</Name>
+	  <OperationList>Echo|SignOn|Transaction|TransactionResponse|ReverseTransaction|ReverseTransactionResponse|BalanceInquiry|BalanceInquiryResponse</OperationList>
+	</Method>
+</MethodList>
+

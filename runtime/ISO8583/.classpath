@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/Runtime"/>
+	<classpathentry kind="lib" path="C:/Magicxpi49/Runtime/addon_connectors/ISO8583/runtime/java/lib/commons-cli.jar"/>
+	<classpathentry kind="lib" path="C:/Magicxpi49/Runtime/addon_connectors/ISO8583/runtime/java/lib/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Magicxpi49/Runtime/addon_connectors/ISO8583/runtime/java/lib/jdom.jar"/>
+	<classpathentry kind="lib" path="C:/Magicxpi49/Runtime/addon_connectors/ISO8583/runtime/java/lib/jline-0.9.91.jar"/>
+	<classpathentry kind="lib" path="C:/Magicxpi49/Runtime/addon_connectors/ISO8583/runtime/java/lib/json-20180813.jar"/>
+	<classpathentry kind="lib" path="C:/Magicxpi49/Runtime/addon_connectors/ISO8583/runtime/java/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="C:/Magicxpi49/Runtime/addon_connectors/ISO8583/runtime/java/lib/mgxpi-commons.jar"/>
+	<classpathentry kind="lib" path="C:/Magicxpi49/Runtime/Java/lib/mgxpi-gs.jar"/>
+	<classpathentry kind="lib" path="C:/Magicxpi49/Runtime/Java/lib/mgxpi-sdkServer.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
